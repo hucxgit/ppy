@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function js_submitForm() {
+            document.all.bannerForm.action="test1"
+            document.all.bannerForm.submit()
+        }
+    </script>
+</head>
+<body>
+<div class="panel-body">
+    <form id="bannerForm" method="post">
+        <input type="text" class="form-control" name="bannerName" id="bannerName"
+               placeholder="请输入名称">
+
+        <button type="button" class="btn btn-success" onclick="js_submitForm()">保存</button>
+
+    </form>
+</div>
+
+</body>
+</html>

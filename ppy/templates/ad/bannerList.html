@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block navblock %}
+    {% include "nav.html" ignore missing %}
+{% endblock %}
+
+{% block contentblock %}
+    <div id="midContent" class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                {% include "sliderbar.html" ignore missing %}
+            </div>
+            <div class="col-md-10">
+                {% if tagaction %}
+                    {% include "ad/bannerActionContent.html" ignore missing %}
+                {% else %}
+                    {% include "ad/bannerListContent.html" ignore missing %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div id="tagdiv">{{ tag }}</div>
+    <div id="tagactiondiv">{{ tagaction }}</div>
+
+
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    {# test engine #}
+    <script id="mainbanner-show-template" type="text/x-handlebars-template">
+        {{ '{{' }}{{ '#' }}each data{{ '}}' }}
+        <tr>
+            <td>{{ '{{' }}addOne @index{{ '}}' }}</td>
+            <td>{{ '{{' }}bannerName{{ '}}' }}</td>
+            <td>{{ '{{' }}bannerUrl{{ '}}' }}</td>
+            <td>{{ '{{' }}bannerPic{{ '}}' }}</td>
+            <td>{{ '{{' }}bannerState{{ '}}' }}</td>
+            <td><a href="/banner/banners/{{ tag }}/editbanner">
+                编辑</a>
+            <a href="#">下架</a></td>
+        </tr>
+        {{ '{{' }}/each{{ '}}' }}
+    </script>
+
+    <script type="text/javascript" src={{ url_for('static',filename="injs/banner.js") }}></script>
+{% endblock %}
+

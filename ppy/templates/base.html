@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}皮皮友{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='incss/sliderbar.css') }}" rel="stylesheet">
+
+</head>
+<body>
+<div id="nav">{% block navblock %} {% endblock %}</div>
+<div id="content">
+    {% block contentblock %}
+    {% endblock %}
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
+<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="{{url_for('static',filename="js/handlebars-latest.js")}}"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed-->
+<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+{% block scripts %}
+    <script type="text/javascript">
+        $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+{% endblock %}
+
+</body>
+
+
+</html>
