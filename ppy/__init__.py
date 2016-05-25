@@ -1,5 +1,9 @@
 from flask import Flask
-#from .Views import initView
+#from flask_login import LoginManager
+
+#login_manager = LoginManager()
+
+from .Views import init_vies
 
 def registerblueprint(app):
     from ad import ad as ad_blueprint
@@ -7,21 +11,28 @@ def registerblueprint(app):
     from Report import report as report_blueprint
     from login import login as login_blueprint
     from index import index as index_blueprint
+    from Message import Message as message_blueprint
     app.register_blueprint(ad_blueprint)
     app.register_blueprint(find_blueprint)
     app.register_blueprint(report_blueprint)
     app.register_blueprint(login_blueprint)
     app.register_blueprint(index_blueprint)
-
+    app.register_blueprint(message_blueprint)
 
 
 def create_app():
     app = Flask(__name__)
+
+
+    app.config.from_pyfile('config')
+    #login_manager.init_app(app)
     registerblueprint(app)
 
-    #initView(app)
+    #init_vies(app)
 
     return app
+
+
 
 
 

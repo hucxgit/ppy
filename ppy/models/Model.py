@@ -1,3 +1,13 @@
+from  flask_login import UserMixin,session
+#from ppy import login_manager
+
+class ResponseResult:
+    def __init__(self,respDesc,respCode):
+        self.respDesc = respDesc
+        self.respCode = respCode
+        pass
+    def __del__(self):
+        pass
 class Result:
     def __init__(self, code, data, msg):
         self.code = code
@@ -8,15 +18,24 @@ class Result:
         pass
 
 
-class User:
+class User(UserMixin):
     def __init__(self, id, name, age):
         print('I\'m init')
         self.id = id
         self.name = name
         self.age = age
 
+
     def __del__(self):
         print('I\'m User del')
+
+# @login_manager.user_loader
+# def load_user(user_id):
+#     print("login_manager.user_loader")
+#     #print(user_id)
+#     #user = User(100, "admin", "admin")
+#     return  session['objects']
+
 
 
 class Report:
@@ -102,3 +121,7 @@ class AnonyCate:
 
         def __del__(self):
             pass
+
+
+
+

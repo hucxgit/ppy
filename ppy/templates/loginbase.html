@@ -8,21 +8,21 @@
 
     <!-- Bootstrap core CSS -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static',filename='incss/sliderbar.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename='incss/signin.css') }}" rel="stylesheet">
 
 </head>
 <body>
-<div id="nav">{% block navblock %} {% endblock %}</div>
+
 <div id="content">
 
     {% block contentblock %}
     {% endblock %}
+
 </div>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
 <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="{{ url_for('static',filename="js/handlebars-latest.js") }}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed-->
 <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
 

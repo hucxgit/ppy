@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block navblock %}
+    {% include "nav.html" ignore missing %}
+{% endblock %}
+
+{% block contentblock %}
+    <div id="midContent" class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                {% include "sliderbar.html" ignore missing %}
+            </div>
+            <div class="col-md-10">
+                {% include "message/messageActionContent.html" ignore missing %}
+            </div>
+        </div>
+
+        <div id="tagdiv">{{ tag }}</div>
+        <div id="tagactiondiv">{{ tagaction }}</div>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}
+

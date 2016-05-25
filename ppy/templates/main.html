@@ -4,7 +4,11 @@
 {% endblock %}
 
 {% block contentblock %}
-    <div id="midContent">这是主页面</div>
+
+    <div id="midContent">
+        {{ super() }}
+        这是主页面
+    </div>
  
 {% endblock %}
 

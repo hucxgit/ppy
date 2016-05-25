@@ -1,7 +1,7 @@
 from ..utils import JsonFormat
 from ..models import Model
 
-#ReportService
+#AdService
 class AdService:
     def __init__(self):
         pass
