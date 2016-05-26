@@ -1,4 +1,4 @@
-from  flask_login import UserMixin,session
+#from  flask_login import UserMixin,session
 #from ppy import login_manager
 
 class ResponseResult:
@@ -18,7 +18,7 @@ class Result:
         pass
 
 
-class User(UserMixin):
+class User():
     def __init__(self, id, name, age):
         print('I\'m init')
         self.id = id
