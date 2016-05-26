@@ -3,7 +3,7 @@ from flask import Flask
 
 #login_manager = LoginManager()
 
-from .Views import init_vies
+#from .Views import init_vies
 
 def registerblueprint(app):
     from ad import ad as ad_blueprint

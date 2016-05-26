@@ -14,7 +14,7 @@ manager = Manager(app)
 def dev():
     live_server = Server(app.wsgi_app)
     live_server.watch('templates/*.*')
-    live_server.serve(open_url=True)
+    live_server.serve(open_url=False)
 
 
 

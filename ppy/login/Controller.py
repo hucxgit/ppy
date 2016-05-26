@@ -5,7 +5,7 @@ from ppy import models
 from ppy import services
 
 #from ppy import login_manager
-from flask.ext.login import logout_user,login_user,login_required,current_user
+#from flask.ext.login import logout_user,login_user,login_required,current_user
 
 from . import login
 
@@ -21,10 +21,10 @@ if sys.getdefaultencoding() != default_encoding:
     reload(sys)
     sys.setdefaultencoding(default_encoding)
 
-@login.route("/settings")
-@login_required
-def settings():
-    pass
+# @login.route("/settings")
+# @login_required
+# def settings():
+#     pass
 
 
 
