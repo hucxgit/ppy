@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block navblock %}
+    {% include "nav.html" ignore missing %}
+{% endblock %}
+
+{% block contentblock %}
+    <div id="midContent" class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                {% include "sliderbar.html" ignore missing %}
+            </div>
+
+            <div class="col-md-10">
+                {% if tagaction=="sends" %}
+                   {% include "message/messageActionContent.html" ignore missing %}
+                {% elif (tagaction=="oneday" or tagaction=="allday") %}
+                    {% include "message/MessageListContent.html" ignore missing %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="tagdiv">{{ tag }}</div>
+        <div id="tagactiondiv">{{ tagaction }}</div>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+     <script id="message-show-template" type="text/x-handlebars-template">
+        {{ '{{' }}{{ '#' }}each data{{ '}}' }}
+        <tr>
+            <td>{{ '{{' }}addOne @index{{ '}}' }}</td>
+            <td>{{ '{{' }}nickName{{ '}}' }}</td>
+            <td>{{ '{{' }}mobile{{ '}}' }}</td>
+            <td>{{ '{{' }}sums{{ '}}' }}</td>
+        </tr>
+        {{ '{{' }}/each{{ '}}' }}
+    </script>
+
+    <script type="text/javascript" src={{ url_for('static',filename="injs/message.js") }}></script>
+{% endblock %}
+

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block navblock %}
+    {% include "nav.html" ignore missing %}
+{% endblock %}
+
+{% block contentblock %}
+
+    <div id="midContent" class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                {% include "sliderbar.html" ignore missing %}
+            </div>
+            <div class="col-md-10">
+                {% if tagaction %}
+                    {% include "ad/adActionContent.html" ignore missing %}
+                {% else %}
+                    {% include "ad/adListContent.html" ignore missing %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div id="tagdiv">{{ tag }}</div>
+    <div id="tagactiondiv">{{ tagaction }}</div>
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+    {# test engine #}
+    <script id="ad-show-template" type="text/x-handlebars-template">
+        {{ '{{' }}{{ '#' }}each data{{ '}}' }}
+        <tr>
+            <td>{{ '{{' }}addOne @index{{ '}}' }}</td>
+            <td>{{ '{{' }}adTitle{{ '}}' }}</td>
+            <td>{{ '{{' }}adUrl{{ '}}' }}</td>
+            <td>{{ '{{' }}adPlace{{ '}}' }}</td>
+            <td>{{ '{{' }}adTime{{ '}}' }}</td>
+            <td>{{ '{{' }}adState{{ '}}' }}</td>
+            <td><a href="/ad/ads_page/editadd">编辑</a><a href="#">下架</a></td>
+        </tr>
+        {{ '{{' }}/each{{ '}}' }}
+    </script>
+
+    <script type="text/javascript" src={{ url_for('static',filename="injs/adList.js") }}></script>
+{% endblock %}
+

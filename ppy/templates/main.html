@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block navblock %}
+    {% include "nav.html" ignore missing %}
+{% endblock %}
+
+{% block contentblock %}
+
+    <div id="midContent">
+        {{ super() }}
+        这是主页面
+    </div>
+ 
+{% endblock %}
+
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}
+

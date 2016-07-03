@@ -1,0 +1,35 @@
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {% if tagaction == "oneday" %}
+                 今日邀请统计
+            {% else %}
+                 累计邀请统计
+            {% endif %}
+
+        </h3>
+    </div>
+
+
+    <div class="panel-body">
+        <div>
+            <!-- Table -->
+            <table class="table table-striped table-hover table-condensed">
+                <thead>
+                <tr>
+                    <th>index</th>
+                    <th>邀请人</th>
+                    <th>邀请人手机号</th>
+                    <th>邀请数</th>
+                </tr>
+                </thead>
+                <tbody class="tbodycontent">
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="panel-footer">感谢使用皮皮友管理平台</div>
+
+</div>

@@ -1,0 +1,71 @@
+<ul id="main-nav" class="main-nav nav nav-tabs nav-stacked" style="">
+    {% if (tag == "ads" or tag == "forumbanner" or tag == "mainbanner") %}
+        <li>
+            <a href="#systemSetting" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-cog"></i>
+                运营
+                <span class="pull-right glyphicon glyphicon-chevron-toggle"></span>
+            </a>
+            <ul id="systemSetting" class="nav nav-list secondmenu collapse in">
+                {# <li><a href="/ad/ads_page"><i class="glyphicon glyphicon-user"></i>&nbsp;广告列表</a></li>#}
+                <li><a href="/banner/banners_page/mainbanner"><i class="glyphicon glyphicon-th-list"></i>&nbsp;首页Banner</a>
+                </li>
+                <li><a href="/banner/banners_page/forumbanner"><i class="glyphicon glyphicon-asterisk"></i>&nbsp;论坛Banner</a>
+                </li>
+            </ul>
+        </li>
+    {% endif %}
+
+    {% if tag == "article" or tag == "maincate" or tag == "forumcate" or tag == "anony" %}
+
+        <li>
+            <a href="#configSetting" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-credit-card"></i>
+                发现
+                <span class="pull-right glyphicon  glyphicon-chevron-toggle"></span>
+            </a>
+            <ul id="configSetting" class="nav nav-list secondmenu collapse in">
+                <li class="active"><a href="/find/maincate_page"><i class="glyphicon glyphicon-globe"></i>&nbsp;首页分类管理</a>
+                </li>
+
+                <li class="active"><a href="/find/forumcate_page"><i class="glyphicon glyphicon-globe"></i>&nbsp;论坛分类管理</a>
+                </li>
+
+                <li class="active"><a href="/find/anony_page"><i class="glyphicon glyphicon-globe"></i>&nbsp;匿名管理</a>
+                </li>
+
+                <li class="active"><a href="/find/article_page"><i class="glyphicon glyphicon-globe"></i>&nbsp;发现列表</a>
+                </li>
+            </ul>
+        </li>
+    {% endif %}
+    {% if tag == "message" %}
+        <li>
+            <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-globe"></i>
+                消息
+                <span class="pull-right glyphicon glyphicon-chevron-toggle"></span>
+            </a>
+            <ul id="disSetting" class="nav nav-list secondmenu collapse in">
+                <li><a href="/message/messages/sends_page"><i class="glyphicon glyphicon-th-list"></i>&nbsp;群发消息</a></li>
+                <li><a href="/message/messages/oneday_page"><i class="glyphicon glyphicon-th-list"></i>&nbsp;今日邀请统计</a></li>
+                <li><a href="/message/messages/allday_page"><i class="glyphicon glyphicon-th-list"></i>&nbsp;累计邀请统计</a></li>
+            </ul>
+
+        </li>
+    {% endif %}
+    {% if tag == "reports" %}
+
+        <li>
+            <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-globe"></i>
+                举报
+                <span class="pull-right glyphicon glyphicon-chevron-toggle"></span>
+            </a>
+            <ul id="disSetting" class="nav nav-list secondmenu collapse in">
+                <li><a href="/report/reports_page"><i class="glyphicon glyphicon-th-list"></i>&nbsp;举报列表</a></li>
+            </ul>
+        </li>
+
+    {% endif %}
+</ul>

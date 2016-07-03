@@ -1,0 +1,15 @@
+1:Banner 服务
+ /banner/query
+ /banner/create
+ /banner/delete
+ /banner/update
+
+2:类目服务
+/category/query
+/category/create
+/category/delete
+
+
+//举报
+
+

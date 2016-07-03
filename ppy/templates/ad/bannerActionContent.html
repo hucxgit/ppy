@@ -1,0 +1,66 @@
+<div class="panel panel-default" xmlns="http://www.w3.org/1999/html">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Banner列表/编辑主Banner
+        </h3>
+    </div>
+    <div class="panel-body">
+        <form id="bannerForm" class="form-horizontal" method="post" enctype="multipart/form-data" role="form">
+
+            <div class="form-group" hidden="hidden">
+                <label for="bId" class="col-sm-2 control-label">ID</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="bId" id="bId"
+                           placeholder="请输入ID">
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="bannerName" class="col-sm-2 control-label">名称</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="bannerName" id="bannerName"
+                           placeholder="请输入名称">
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="inputfile" class="col-sm-2 control-label">Banner图片</label>
+
+                <div class="col-sm-4">
+                    <input type="file" name="inputfile" id="inputfile" id="inputfile">
+                    <img src="" name="bannerImageUrl" id="bannerImageUrl" class="img-responsive" alt="Cinque Terre" width="200" height="100">
+
+                </div>
+
+                <div class="col-sm-6">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="bannerUrl" class="col-sm-2 control-label">URL链接</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="bannerUrl" id="bannerUrl"
+                           placeholder="URL链接">
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" class="btn btn-success" onclick="js_submitForm()">保存</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="panel-footer">感谢使用皮皮友管理平台 {{ tagaction }}</div>
+</div>
