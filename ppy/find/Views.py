@@ -20,16 +20,16 @@ def maincateAction(maincateaction=None,categoryId=None):
 
 @find.route('/find/forumcate_page')
 def forumcate():
-    return render_template("find/forumcateList.html", tag="forumcate")
+    return render_template("find/forumCateList.html", tag="forumcate")
 
 
 @find.route('/find/forumcate_page/<forumcateaction>')
 def forumcateNew(forumcateaction=None):
-    return render_template("find/forumcateList.html", tag="forumcate", tagaction=forumcateaction)
+    return render_template("find/forumCateList.html", tag="forumcate", tagaction=forumcateaction)
 
 @find.route('/find/forumcate_page/<forumcateaction>/<categoryId>')
 def forumcateAction(forumcateaction=None,categoryId=None):
-    return render_template("find/forumcateList.html", tag="forumcate", tagaction=forumcateaction,categoryId=categoryId)
+    return render_template("find/forumCateList.html", tag="forumcate", tagaction=forumcateaction,categoryId=categoryId)
 
 
 
