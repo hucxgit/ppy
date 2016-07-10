@@ -91,6 +91,18 @@ class Article:
     def __del__(self):
          pass
 
+class PostInfo:
+    def __init__(self,postId,uid,author,title,simpleContent,content):
+        self.postId = postId
+        self.uid = uid
+        self.author = author
+        self.title = title
+        self.simpleContent = simpleContent
+        self.content = content
+        pass
+    def __del__(self):
+        pass
+
 
 
 class MainCate:

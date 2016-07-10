@@ -70,10 +70,9 @@ def maincatedelete(categoryId=None):
 
 
 # forumcate
-@find.route("/forumcatelist")
-def forumcatelist():
-    parentid = request.args.get("parentid", 0, type=int)
-    return services.ForumCateService().serviceForumCate(parentid)
+@find.route("/forumcatelist/<parentid>")
+def forumcatelist(parentid=None):
+    return services.ForumCateService().serviceForumCate(parentid,1)
     pass
 
 
@@ -82,18 +81,57 @@ def forumcatelist():
 def forumcatesubmit():
     if request.method == 'POST':
         print("forumcatesubmit")
-        print(request)
-        print (request.form)
-        print (request.files)
 
-        print("forumcatesubmit....")
-        return redirect(url_for('forumcate'))
+        categoryId = request.form["cId"]
+        categoryName = request.form['maincateName']
+        f = request.files['inputfile']
+
+        if categoryId == "":
+            print ("create new banner")
+            result = services.MainCateService().serviceNewCategory(categoryName, 1)
+            categoryId = result["categoryId"]
+            filename = secure_filename(f.filename)
+            if filename != "":
+                path = tempfile.gettempdir() + filename
+                spath = tempfile.gettempdir() + "s_" + filename
+                f.save(path)
+                f.save(spath)
+                services.ImageUploadService().uploadCategoryImage("categoryId", categoryId, path, spath)
+                print("上传图片结束")
+        else:
+            print ("update old banner")
+            filename = secure_filename(f.filename)
+            if filename != "":
+                path = tempfile.gettempdir() + filename
+                spath = tempfile.gettempdir() + "s_" + filename
+                f.save(path)
+                f.save(spath)
+                services.ImageUploadService().uploadCategoryImage("categoryId", categoryId, path, spath)
+                print("上传图片结束")
+            print ("开始update其他数据")
+            result = services.MainCateService().serviceUpdateMainCate(categoryId, categoryName)
+        return redirect(url_for('find.forumcate'))
     return ''
 
 
-@find.route("/forumcatedelete/<id>")
-def forumcatedelete(id=None):
-    return "forumcatedelete"
+@find.route("/forumcateedit/<categoryId>")
+def forumcateedit(categoryId=None):
+    print ("enter controller ")
+    print (categoryId)
+    print ("enter controller ")
+    data = services.MainCateService().serviceSelectMainCate(categoryId)
+    return data
+
+
+@find.route("/forumcatedelete/<categoryId>")
+def forumcatedelete(categoryId=None):
+    return services.MainCateService().serviceDeleteMainCate(categoryId)
+
+
+
+
+
+
 
 
 
@@ -101,54 +139,109 @@ def forumcatedelete(id=None):
 
 
 # anony
-@find.route("/anonylist")
-def anonylist():
-    parentid = request.args.get("parentid", 0, type=int)
-    return services.AnonyService().serviceAnony(parentid)
+@find.route("/anonylist/<parentid>")
+def anonylist(parentid=None):
+    return services.ForumCateService().serviceForumCate(parentid, 2)
+    pass
 
 
 @find.route("/anonysubmit", methods=['POST'])
 def anonysubmit():
     if request.method == 'POST':
-        print("anonysubmit")
-        print(request)
-        print (request.form)
-        print (request.files)
+        print("forumcatesubmit")
 
-        print("anonysubmit....")
-        return redirect(url_for('anony'))
+        categoryId = request.form["cId"]
+        categoryName = request.form['maincateName']
+        f = request.files['inputfile']
+
+        if categoryId == "":
+            print ("create new banner")
+            result = services.MainCateService().serviceNewCategory(categoryName, 2)
+            categoryId = result["categoryId"]
+            filename = secure_filename(f.filename)
+            if filename != "":
+                path = tempfile.gettempdir() + filename
+                spath = tempfile.gettempdir() + "s_" + filename
+                f.save(path)
+                f.save(spath)
+                services.ImageUploadService().uploadCategoryImage("categoryId", categoryId, path, spath)
+                print("上传图片结束")
+        else:
+            print ("update old banner")
+            filename = secure_filename(f.filename)
+            if filename != "":
+                path = tempfile.gettempdir() + filename
+                spath = tempfile.gettempdir() + "s_" + filename
+                f.save(path)
+                f.save(spath)
+                services.ImageUploadService().uploadCategoryImage("categoryId", categoryId, path, spath)
+                print("上传图片结束")
+            print ("开始update其他数据")
+            result = services.MainCateService().serviceUpdateMainCate(categoryId, categoryName)
+        return redirect(url_for('find.anony'))
     return ''
 
+@find.route("/annoyedit/<categoryId>")
+def annoyedit(categoryId=None):
+    print ("enter controller ")
+    print (categoryId)
+    print ("enter controller ")
+    data = services.MainCateService().serviceSelectMainCate(categoryId)
+    return data
 
-@find.route("/anonydelete/<id>")
-def anonydelete(id=None):
-    return "anonydelete"
 
-
+@find.route("/anonydelete/<categoryId>")
+def anonydelete(categoryId=None):
+    return services.MainCateService().serviceDeleteMainCate(categoryId)
 
 
 
 
 # articlelist
-@find.route("/articlelist")
-def articlelist():
-    articleType = request.args.get("articleType", 0, type=int)
-    return services.ArticleService().serviceArticles(articleType)
+@find.route("/articlelist/<articleType>")
+def articlelist(articleType=None):
+    print (articleType)
+    print (type(articleType))
+    categoryId = 0;
+    if articleType == "0" :
+        print ("微科普")
+        categoryId = 16;#微科普
+    else :
+        print ("暖故事")
+        categoryId = 14; #暖故事
+    return services.ArticleService().serviceArticles(categoryId)
 
 
 @find.route("/articlesubmit", methods=['POST'])
 def articlesubmit():
     if request.method == 'POST':
-        print("articlesubmit")
-        print(request)
-        print (request.form)
-        print (request.files)
+        postId = request.form["pId"]
+        author = request.form['articleAuthor']
+        title = request.form['articleName']
+        simpleContent = request.form['articleDes']
+        content = request.form['editorarticle']
 
-        print("articlesubmit....")
-        return redirect(url_for('article'))
+        print ("==========")
+        print (postId)
+        print (author)
+        print (title)
+        print (simpleContent)
+        print (content)
+        print ("==========")
+
+        result = services.ArticleService().serviceUpdatePost(postId,author,title,simpleContent,content)
+        return redirect(url_for('find.article'))
     return ''
 
+@find.route("/articleedit/<postid>")
+def articleedit(postid=None):
+    print ("enter controller ")
+    print (postid)
+    print ("enter controller ")
+    data = services.ArticleService().serviceArticleDetail(postid)
+    return data
 
-@find.route("/articledelete/<id>")
-def articledelete(id=None):
-    return "articledelete"
+
+@find.route("/articledelete/<postid>")
+def articledelete(postid=None):
+    return services.ArticleService().serviceDeletePostById(postid)

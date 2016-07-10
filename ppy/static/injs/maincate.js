@@ -34,6 +34,8 @@ function renderEngine(json) {
     var html = template(json);
     $('.tbodycontent').html(html)
 }
+
+
 //根据id查询分类
 function  selectCategory(categoryId) {
      $.getJSON($SCRIPT_ROOT + '/maincateedit/' + categoryId , {}, function (d) {
@@ -45,11 +47,7 @@ function  selectCategory(categoryId) {
 }
 
 
-// js new article
-function js_newmaincate() {
-    console.log("js_newarticle")
-    window.location.href="/find/maincate_page/newmaincate"
-}
+
 
 
 //edit Main Category
@@ -57,14 +55,7 @@ function editMainCategory(categoryId) {
     window.location.href = "/find/maincate_page" + "/"+ "editmaincate" +"/" + categoryId;
 }
 
-//$("#submitBtn").on("click", js_submitForm);
-function js_submitForm() {
-    var tag = $("#tagdiv").text();
-    console.log(tag)
-    document.all.bannerForm.action="/maincatesubmit";
-    document.all.bannerForm.submit();
 
-}
 
 
 
@@ -87,4 +78,18 @@ function deleteMainCategoryCallBack(code) {
             keyboard: true
         });
     }
+}
+
+// js new article
+function js_newmaincate() {
+    console.log("js_newarticle")
+    window.location.href="/find/maincate_page/newmaincate"
+}
+//$("#submitBtn").on("click", js_submitForm);
+function js_submitForm() {
+    var tag = $("#tagdiv").text();
+    console.log(tag)
+    document.all.bannerForm.action="/maincatesubmit";
+    document.all.bannerForm.submit();
+
 }

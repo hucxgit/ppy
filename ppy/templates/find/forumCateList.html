@@ -11,10 +11,15 @@
             </div>
             <div class="col-md-10">
             {# newforumcate editforumcate subforumcate #}
-                {% if tagaction == "editforumcate" or tagaction == "newforumcate" %}
+{#                {% if tagaction == "editforumcate" or tagaction == "newforumcate" %}#}
+{#                    {% include "find/forumCateActionContent.html" ignore missing %}#}
+{#                {% elif tagaction == "subforumcate" %}#}
+{#                    {% include "find/forumCateListContent.html" ignore missing %}#}
+{#                {% else %}#}
+{#                    {% include "find/forumCateListContent.html" ignore missing %}#}
+{#                {% endif %}#}
+                {% if tagaction %}
                     {% include "find/forumCateActionContent.html" ignore missing %}
-                {% elif tagaction == "subforumcate" %}
-                    {% include "find/forumCateListContent.html" ignore missing %}
                 {% else %}
                     {% include "find/forumCateListContent.html" ignore missing %}
                 {% endif %}
@@ -24,6 +29,8 @@
 
     <div id="tagdiv">{{ tag }}</div>
     <div id="tagactiondiv">{{ tagaction }}</div>
+    <div id="categoryId">{{ categoryId }}</div>
+
 
 
 {% endblock %}
@@ -37,17 +44,16 @@
         {{ '{{' }}{{ '#' }}each data{{ '}}' }}
         <tr>
             <td>{{ '{{' }}addOne @index{{ '}}' }}</td>
-            <td>{{ '{{' }}forumcateId{{ '}}' }}</td>
-            <td>{{ '{{' }}forumcateName{{ '}}' }}</td>
-            <td>{{ '{{' }}forumcatePic{{ '}}' }}</td>
-            <td>{{ '{{' }}forumcateState{{ '}}' }}</td>
-            <td><a onclick="js_subForumCate()">
-                查看子类别</a>
-                </td>
-            <td><a href="/find/forumcate_page/editforumcate">
+            <td>{{ '{{' }}categoryId{{ '}}' }}</td>
+            <td>{{ '{{' }}name{{ '}}' }}</td>
+            <td><img src={{ '{{' }}imageUrl{{ '}}'}} width="40" height="40"></td>
+            <td>{{ '{{' }}isDelete{{ '}}' }}</td>
+            <td><a href="javascript:void(0); onclick=forumcateRequest({{ '{{' }}categoryId{{ '}}' }})">
+                查看子类别</a></td>
+            <td><a href="javascript:void(0); onclick=editForumCategory({{ '{{' }}categoryId{{ '}}' }})">
                 编辑</a>
-                <a href="#">删除</a></td>
-        </tr>
+                <a href="javascript:void(0); onclick=deleteCategory({{ '{{' }}categoryId{{ '}}' }})">删除</a></td>
+            </tr>
         {{ '{{' }}/each{{ '}}' }}
     </script>
 
