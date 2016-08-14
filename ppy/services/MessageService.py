@@ -25,10 +25,11 @@ class MessageService:
                 "messageImg": messageImageUrl, "messageUrl": messageUrl}
         result = HttpUtil.post(posturl, data)
 
-        r = JsonFormat.MyDecoder().decode(result)
-        print(r)
-        print(type(r))
-        return r
+        # print(type(result))
+        # r = JsonFormat.MyDecoder().decode(result)
+        # print(r)
+        # print(type(r))
+        return result
     def serviceStatictis(self,type):
         posturl = getConfigByKey("URL") + ":" + getConfigByKey("PORT") + "/statistic/" + type
         print(posturl)

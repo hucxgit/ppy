@@ -11,10 +11,8 @@
             </div>
 
             <div class="col-md-10">
-                {% if tagaction=="sends" %}
-                   {% include "message/messageActionContent.html" ignore missing %}
-                {% elif (tagaction=="oneday" or tagaction=="allday") %}
-                    {% include "message/MessageListContent.html" ignore missing %}
+                {% if tagaction=="uploadImage" %}
+                   {% include "image/ImageAction.html" ignore missing %}
                 {% endif %}
             </div>
         </div>
@@ -39,6 +37,6 @@
     </script>
 
     <script type="text/javascript" src="{{ url_for('static',filename="injs/commonForm.js") }}"></script>
-    <script type="text/javascript" src={{ url_for('static',filename="injs/message.js") }}></script>
+    <script type="text/javascript" src={{ url_for('static',filename="injs/uploadImage.js") }}></script>
 {% endblock %}
 

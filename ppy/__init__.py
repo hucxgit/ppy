@@ -16,12 +16,14 @@ def registerblueprint(app):
     from login import login as login_blueprint
     from index import index as index_blueprint
     from Message import Message as message_blueprint
+    from Image import Image as image_blueprint
     app.register_blueprint(ad_blueprint)
     app.register_blueprint(find_blueprint)
     app.register_blueprint(report_blueprint)
     app.register_blueprint(login_blueprint)
     app.register_blueprint(index_blueprint)
     app.register_blueprint(message_blueprint)
+    app.register_blueprint(image_blueprint)
 
 
 def getConfigByKey(key):

@@ -7,7 +7,8 @@
     </div>
 
     <div class="panel-body">
-        <form id="bannerForm" action="/articlesubmit" class="form-horizontal" method="post" enctype="multipart/form-data" role="form">
+        <form id="bannerForm" action="/articlesubmit" class="form-horizontal" method="post"
+              enctype="multipart/form-data" role="form">
 
             <div class="form-group" hidden="hidden">
                 <label for="pId" class="col-sm-2 control-label">ID</label>
@@ -49,6 +50,17 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <label for="CategoryState" class="col-sm-2 control-label">所属分类</label>
+                <div class="col-sm-4">
+                    <select class="form-control" name="CategoryState" id="CategoryState">
+                        <option value="0">微普科</option>
+                        <option value="1">暖故事</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
 
 
             <div class="form-group">
@@ -63,9 +75,6 @@
                 <div class="col-sm-2">
                 </div>
             </div>
-
-
-
 
 
             <div class="form-group">

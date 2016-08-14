@@ -3,6 +3,7 @@
  */
 
 $(document).ready(function () {
+    console.log("message ready go");
     var tagaction = $("#tagactiondiv").text();
     if (tagaction == "oneday") {
         statictisOneDay();
@@ -11,20 +12,46 @@ $(document).ready(function () {
         statictisAllDay();
     }
 
+    /**
+     * 绑定表单 提交事件
+     */
+    $('#sendMessageForm').bind('submit',sendMessage);
+
 
 });
 
-function sendMessage() {
-    $('#sendMessageForm').submitForm({
-            url: $SCRIPT_ROOT + "/sendMessages",
-            dataType: "text",
-            callback: function (data) {
-                alert("success success");
-            },
-            before: function () {
 
-            }
-    }).submit();
+function sendMessage() {
+    if(!checkParameter()){
+        $('#parameterModel').modal({
+        keyboard: true
+        });
+        return false;
+    }
+    ajaxSubmit(this, function(data){
+        var obj = JSON.parse(data); //由JSON字符串转换为JSON对象
+        alert(obj.respDesc);
+    });
+    return false;
+}
+function checkParameter() {
+    exp=$("#messageTitle").val();
+    if(!exp){
+        return false;
+    }
+    exp = $("#messageContent").val();
+    if(!exp){
+        return false;
+    }
+    exp = $("#messageUrl").val();
+    if(!exp){
+        return false;
+    }
+    exp = $("#messageImageUrl").val();
+    if(!exp){
+        return false;
+    }
+    return true;
 }
 
 function statictisOneDay() {

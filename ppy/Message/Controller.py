@@ -16,11 +16,7 @@ def sendMessages():
         imageUrl = request.form['messageImageUrl']
 
         dic = services.MessageService().serviceSendMessages(title,content,url,imageUrl)
-        if dic['respCode'] == "000000":
-            return "success"
-        else:
-            return "failure"
-
+        return dic
 
 @Message.route('/oneday')
 def statictisOneDay():

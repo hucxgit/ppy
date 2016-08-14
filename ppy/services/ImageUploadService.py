@@ -42,3 +42,11 @@ class ImageUploadService:
         code = r["respCode"]
         msg = r["respDesc"]
         pass
+
+
+    def uploadPostImage(self,key,value,path,spath):
+        posturl = getConfigByKey("URL") + ":" + getConfigByKey("PORT") + "/images/uploadPostImg"
+        print(posturl)
+        result = HttpUtil.uploadFile(posturl, path, spath, key, value)
+        return result
+        pass

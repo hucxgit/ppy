@@ -11,6 +11,8 @@ $(document).ready(function () {
     }else {
          if(postid != ""){
             selectPostInfo(postid);
+         }else{
+             CKEDITOR.replace('editorarticle')
          }
     }
 

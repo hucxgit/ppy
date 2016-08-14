@@ -75,11 +75,21 @@ class ArticleService:
             return JsonFormat.MyEncoder().encode({"code": code, "msg": msg})
 
 
+    def serviceCreatePost(self,uid,categoryId,author,title,simpleContent,content):
+        posturl = getConfigByKey("URL") + ":" + getConfigByKey("PORT") + "/post/create"
+        print(posturl)
+        data = {"uid":uid,"categoryId":categoryId,
+                "author": author,
+                "title": title,
+                "simpleContent": simpleContent, "context": content}
+        result = HttpUtil.post(posturl, data)
+        return result
+
     #更新帖子
-    def serviceUpdatePost(self,postId,author,title,simpleContent,content):
+    def serviceUpdatePost(self,postId,categoryId,author,title,simpleContent,content):
         posturl = getConfigByKey("URL") + ":" + getConfigByKey("PORT") + "/post/updatePostinfo"
         print(posturl)
-        data = {"postId": postId, "author": author,"title":title,"simpleContent":simpleContent,"context":content}
+        data = {"postId": postId,"categoryId":categoryId, "author": author,"title":title,"simpleContent":simpleContent,"context":content}
         result = HttpUtil.post(posturl, data)
 
         print("===============ArticleService serviceUpdatePost list 1 ====================");

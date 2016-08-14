@@ -15,54 +15,22 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                {% if (tag == "ads" or tag == "forumbanner" or tag == "mainbanner") %}
-                    <li><a href="/index_page">首页</a></li>
-
-                    <li class="active"><a href="/banner/banners_page/mainbanner">运营</a></li>
-                    <li><a href="/find/maincate_page">发现</a></li>
-                    <li><a href="/report/reports_page">举报</a></li>
-                    <li><a href="/message/messages/sends_page">消息</a></li>
-                    <li><a href="/loginoutAction">登出</a></li>
-
-                {% elif tag == "article" or tag == "maincate" or tag == "forumcate" or tag == "anony" %}
-                    <li><a href="/index_page">首页</a></li>
-                    <li><a href="/banner/banners_page/mainbanner">运营</a></li>
-                    <li class="active"><a href="/find/maincate_page">发现</a></li>
-                    <li><a href="/report/reports_page">举报</a></li>
-                    <li><a href="/message/messages/sends_page">消息</a></li>
-                    <li><a href="/loginoutAction">登出</a></li>
-
-                {% elif tag == "reports" %}
-                    <li><a href="/index_page">首页</a></li>
-                    <li><a href="/banner/banners_page/mainbanner">运营</a></li>
-                    <li><a href="/find/maincate_page">发现</a></li>
-                    <li class="active"><a href="/report/reports_page">举报</a></li>
-                    <li><a href="/message/messages/sends_page">消息</a></li>
-                    <li><a href="/loginoutAction">登出</a></li>
-                {% elif tag == "message" %}
-                    <li><a href="/index_page">首页</a></li>
-                    <li><a href="/banner/banners_page/mainbanner">运营</a></li>
-                    <li><a href="/find/maincate_page">发现</a></li>
-                    <li><a href="/report/reports_page">举报</a></li>
-                    <li class="active"><a href="/message/messages/sends_page">消息</a></li>
-                    <li><a href="/loginoutAction">登出</a></li>
-                {% else %}
-                    <li class="active"><a href="/index_page">首页</a></li>
-                    <li><a href="/banner/banners_page/mainbanner">运营</a></li>
-                    <li><a href="/find/maincate_page">发现</a></li>
-                    <li><a href="/report/reports_page">举报</a></li>
-                    <li><a href="/message/messages/sends_page">消息</a></li>
-
-                    <li><a href="/loginoutAction">登出</a></li>
-
-                {% endif %}
-
+                <li><a href="/index_page">首页</a></li>
+                <li id="yunying"><a href="/banner/banners_page/mainbanner">运营</a></li>
+                <li id="find"><a href="/find/maincate_page">发现</a></li>
+                <li id="report"><a href="/report/reports_page">举报</a></li>
+                <li id="message"><a href="/message/messages/sends_page">消息</a></li>
+                <li id="image"><a href="/image/uploadImage">上传图片</a></li>
+                <li><a href="/loginoutAction">登出</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 {{ tag }}
+
+
+
 
 
 

@@ -1,6 +1,6 @@
 
 <!-- 按钮触发模态框 -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#successModel">
+<button class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#successModel">
 </button>
 
     <!-- 模态框（Modal） -->
@@ -32,7 +32,7 @@
 
 
 <!-- 按钮触发模态框 -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#failureModel">
+<button class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#failureModel">
 </button>
 
     <!-- 模态框（Modal） -->
@@ -60,3 +60,65 @@
       </div><!-- /.modal-content -->
    </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+<!-- 按钮触发模态框 -->
+<button class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#parameterModel">
+</button>
+<div class="modal fade" id="parameterModel" tabindex="-1" role="dialog"
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+               aria-hidden="true">x
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+               操作提示
+            </h4>
+         </div>
+         <div class="modal-body">
+              参数不合适
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default"
+               data-dismiss="modal">
+               关闭
+            </button>
+          </div>
+      </div><!-- /.modal-content -->
+   </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+{#<div class="alert alert-success">成功！很好地完成了提交。</div>#}
+{#<div class="alert alert-info">信息！请注意这个信息。</div>#}
+{#<div class="alert alert-warning">警告！请不要提交。</div>#}
+{#<div class="alert alert-danger">错误！请进行一些更改。</div>#}
+
+<div class="alert alert-success alert-dismissable hidden">
+   <button type="button" class="close" data-dismiss="alert"
+      aria-hidden="true">
+      &times;
+   </button>
+   成功！很好地完成了提交。
+</div>
+<div class="alert alert-info alert-dismissable hidden">
+   <button type="button" class="close" data-dismiss="alert"
+      aria-hidden="true">
+      &times;
+   </button>
+   信息！请注意这个信息。
+</div>
+<div class="alert alert-warning alert-dismissable hidden" id="warnAlert">
+   <button type="button" class="close" data-dismiss="alert"
+      aria-hidden="true">
+      &times;
+   </button>
+   参数不合适
+</div>
+<div class="alert alert-danger alert-dismissable hidden">
+   <button type="button" class="close" data-dismiss="alert"
+      aria-hidden="true">
+      &times;
+   </button>
+   错误！请进行一些更改。
+</div>

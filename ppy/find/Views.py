@@ -66,6 +66,7 @@ def article():
 @find.route('/find/article_page/<articleaction>')
 def articleNew(articleaction=None):
     return render_template("find/articleList.html", tag="article", tagaction=articleaction)
+
 @find.route('/find/article_page/<articleaction>/<postid>')
 def articleAction(articleaction=None,postid=None):
     return render_template("find/articleList.html", tag="article", tagaction=articleaction,postid=postid)

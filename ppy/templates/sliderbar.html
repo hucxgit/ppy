@@ -68,4 +68,17 @@
         </li>
 
     {% endif %}
+
+  {% if tag == "image" %}
+        <li>
+            <a href="#disSetting" class="nav-header collapsed" data-toggle="collapse">
+                <i class="glyphicon glyphicon-globe"></i>
+                图片处理
+                <span class="pull-right glyphicon glyphicon-chevron-toggle"></span>
+            </a>
+            <ul id="disSetting" class="nav nav-list secondmenu collapse in">
+                <li><a href="/image/uploadImage"><i class="glyphicon glyphicon-th-list"></i>&nbsp;上传图片</a></li>
+            </ul>
+        </li>
+  {% endif %}
 </ul>

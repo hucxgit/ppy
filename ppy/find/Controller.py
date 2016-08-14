@@ -220,17 +220,23 @@ def articlesubmit():
         title = request.form['articleName']
         simpleContent = request.form['articleDes']
         content = request.form['editorarticle']
+        categoryState = request.form['CategoryState']
+        categoryId = 0;
+        if categoryState == "0":
+            print ("微科普")
+            categoryId = 16;  # 微科普
+        else:
+            print ("暖故事")
+            categoryId = 14;  # 暖故事
 
-        print ("==========")
-        print (postId)
-        print (author)
-        print (title)
-        print (simpleContent)
-        print (content)
-        print ("==========")
-
-        result = services.ArticleService().serviceUpdatePost(postId,author,title,simpleContent,content)
-        return redirect(url_for('find.article'))
+        if postId == "":
+            result = services.ArticleService().serviceCreatePost("1",categoryId,author,title,simpleContent,content)
+            print("新建帖子结果");
+            print(result);
+            return redirect(url_for('find.article'))
+        else:
+            result = services.ArticleService().serviceUpdatePost(postId,categoryId,author, title, simpleContent, content)
+            return redirect(url_for('find.article'))
     return ''
 
 @find.route("/articleedit/<postid>")
