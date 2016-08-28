@@ -11,9 +11,9 @@ def load_config():
             from development import DevelopmentConfig
             return DevelopmentConfig
         else:
-            print "load DEVELOPMENT ELSE"
-            from .development import DevelopmentConfig
-            return DevelopmentConfig
+            print "load PRODUCTION"
+            from .production import ProductionConfig
+            return ProductionConfig
     except ImportError, e:
         print "load DEVELOPMENT EXCEPTION"
         from default import Config
