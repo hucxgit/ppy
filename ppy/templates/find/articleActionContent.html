@@ -39,6 +39,17 @@
                 <div class="col-sm-6">
                 </div>
             </div>
+            {% if tagaction == "newarticle" %}
+            <div class="form-group">
+                <label for="articlePic" class="col-sm-2 control-label">文章图片</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="articlePic" id="articlePic"
+                           placeholder="图片">
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+            {% endif %}
 
             <div class="form-group">
                 <label for="articleDes" class="col-sm-2 control-label">文章简介</label>

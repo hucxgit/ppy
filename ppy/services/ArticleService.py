@@ -75,13 +75,14 @@ class ArticleService:
             return JsonFormat.MyEncoder().encode({"code": code, "msg": msg})
 
 
-    def serviceCreatePost(self,uid,categoryId,author,title,simpleContent,content):
+    def serviceCreatePost(self,uid,categoryId,author,title,articlePic,simpleContent,content):
         posturl = getConfigByKey("URL") + ":" + getConfigByKey("PORT") + "/post/create"
         print(posturl)
         data = {"uid":uid,"categoryId":categoryId,
                 "author": author,
                 "title": title,
-                "simpleContent": simpleContent, "context": content}
+                "simpleContent": simpleContent, "context": content,
+                 "images":[articlePic]}
         result = HttpUtil.post(posturl, data)
         return result
 

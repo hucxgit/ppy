@@ -230,7 +230,8 @@ def articlesubmit():
             categoryId = 14;  # 暖故事
 
         if postId == "":
-            result = services.ArticleService().serviceCreatePost("1",categoryId,author,title,simpleContent,content)
+            articlePic = request.form["articlePic"]
+            result = services.ArticleService().serviceCreatePost("1",categoryId,author,title,articlePic,simpleContent,content)
             print("新建帖子结果");
             print(result);
             return redirect(url_for('find.article'))
